@@ -1,6 +1,4 @@
-﻿using Catalog.API.Products.CreateProduct;
-
-namespace Catalog.API.Products.GetProducts
+﻿namespace Catalog.API.Products.GetProducts
 {
     //public record GetProductsQuery() : IQuery<GetProductsResult>;
     public record GetProductsResponse(IEnumerable<Product> Products);
