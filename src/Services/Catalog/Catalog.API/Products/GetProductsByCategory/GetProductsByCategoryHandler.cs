@@ -13,11 +13,6 @@
                 .Where(p => p.Category.Contains(query.Category))
                 .ToListAsync();
 
-            if (products is null || products.Count < 1)
-            {
-                throw new ProductNotFoundException();
-            }
-
             return new GetProductsByCategoryResult(products);
         }
     }

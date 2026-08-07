@@ -2,6 +2,13 @@
 {
     public record DeleteProductCommand(Guid Id) : IQuery<DeleteProductResult>;
     public record DeleteProductResult(bool IsSuccess);
+    public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommand>
+    {
+        public DeleteProductCommandValidator()
+        {
+            RuleFor(x => x.Id).NotEmpty().WithMessage("Product ID is required");
+        }
+    }
     public class DeleteProductCommandHandler(IDocumentSession session, ILogger<DeleteProductCommandHandler> logger)
         : IQueryHandler<DeleteProductCommand, DeleteProductResult>
     {
